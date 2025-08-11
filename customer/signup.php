@@ -8,89 +8,113 @@ ini_set("display_errors", 1);
 $success = "";
 $error = "";
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-  $username = trim($_POST["username"]);
-  $email = trim($_POST["email"]);
-  $password = $_POST["password"];
+// Store form values to repopulate on error
+$usernameValue = "";
+$emailValue = "";
 
-  if (empty($username) || empty($email) || empty($password)) {
-    $error = "All fields are required!";
-  } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error = "Invalid email format!";
-  } elseif ($password !== $confirm_password) {
-    $error = "Passwords do not match!";
-  } else {
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST["username"]);
+    $email = trim($_POST["email"]);
+    $password = $_POST["password"];
+    $confirm_password = $_POST["confirm_password"]; 
 
-    //check if emal already exists
-    $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
-    $check->bind_param("s", $email);
-    $check->execute();
-    $check->store_result();
+    // Save for repopulation
+    $usernameValue = htmlspecialchars($username);
+    $emailValue = htmlspecialchars($email);
 
-    if($check->num_rows > 0) {
-      $error = "Email is already registered!";
+    if (empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
+        $error = "All fields are required!";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = "Invalid email format!";
+    } elseif ($password !== $confirm_password) {
+        $error = "Passwords do not match!";
+    } elseif (strlen($password) < 8) {
+        $error = "Password must be at least 8 characters long!";
     } else {
-      $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
-      $stmt = $conn->prepare($sql);
-      $stmt->bind_param("sss", $username, $email, $hashed_password);
-      if($stmt->execute()) {
-        $success = "Signed up successfully! Redirecting...";
-        echo "<script>
-          setTimeout(function() {
-          window.location.href = 'login.php';
-          }, 2000);
-        </script>";
-      } else {
-        $error = "Signup failed. Please try again.";
-      }
-      $stmt->close();
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // check if email already exists
+        $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
+        $check->bind_param("s", $email);
+        $check->execute();
+        $check->store_result();
+
+        if ($check->num_rows > 0) {
+            $error = "Email is already registered!";
+        } else {
+            // check if username already exists
+            $checkUser = $conn->prepare("SELECT id FROM users WHERE username = ?");
+            $checkUser->bind_param("s", $username);
+            $checkUser->execute();
+            $checkUser->store_result();
+
+            if ($checkUser->num_rows > 0) {
+                $error = "Username is already taken!";
+            } else {
+                $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("sss", $username, $email, $hashed_password);
+
+                if ($stmt->execute()) {
+                    // Automatically log the user in
+                    $_SESSION['user_id'] = $stmt->insert_id;
+                    $_SESSION['username'] = $username;
+                    $_SESSION['email'] = $email;
+
+                    $success = "Account created successfully! Redirecting...";
+                    echo "<script>
+                        setTimeout(function() {
+                            window.location.href = '../index.php';
+                        }, 2000);
+                    </script>";
+                } else {
+                    $error = "Signup failed. Please try again.";
+                }
+                $stmt->close();
+            }
+            $checkUser->close();
+        }
+        $check->close();
     }
-    $check->close();
-  }
 }
 $conn->close();
 ?>
 
 <?php include "../includes/boilerplate.php"; ?>
 
-
-  <div class="signup-container">
+<div class="signup-container">
     <h1>Create New Account</h1>
 
     <?php 
     if (!empty($success)) {
-      echo "<p class='success'>" . htmlspecialchars($success) . "</p>";
+        echo "<p class='success'>" . $success . "</p>";
     }
     if (!empty($error)) {
-      echo "<p class='error'>" . htmlspecialchars($error) . "</p>";
+        echo "<p class='error'>" . $error . "</p>";
     }
     ?>
 
     <form action="signup.php" method="POST">
-      <div class="form-group">
-        <label for="username" class="form-label">Username: </label>
-        <input type="text" class="form-control" id="username" name="username" required>
-      </div>
-      <div class="form-group">
-        <label for="email" class="form-label">Email: </label>
-        <input type="email" class="form-control" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password" class="form-label">Password: </label>
-        <input type="password" class="form-control" id="password" name="password" required>
-      </div>
-      <div class="form-group">
-        <label for="confirm_password" class="form-label">Confirm Password: </label>
-        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
-      </div>
-      <div class="btn-container">
-        <button class="btn" type="submit">Sign Up</button>
-      </div>
+        <div class="form-group">
+            <label for="username" class="form-label">Username: </label>
+            <input type="text" class="form-control" id="username" name="username" value="<?= $usernameValue ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">Email: </label>
+            <input type="email" class="form-control" id="email" name="email" value="<?= $emailValue ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Password: </label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm_password" class="form-label">Confirm Password: </label>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+        </div>
+        <div class="btn-container">
+            <button class="btn" type="submit">Sign Up</button>
+        </div>
     </form>
-  </div>
+</div>
 
-  <?php include "../includes/footer.php"; ?>
-
-
-
+<?php include "../includes/footer.php"; ?>
