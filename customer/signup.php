@@ -43,8 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error = "Email is already registered!";
         } else {
             // check if username already exists
-            $checkUser = $conn->prepare("SELECT id FROM users WHERE username = ?");
+           $checkUser = $conn->prepare("SELECT id FROM users WHERE username = ?");
+            if (!$checkUser) {
+                die("Prepare failed: " . $conn->error);
+            }
             $checkUser->bind_param("s", $username);
+
             $checkUser->execute();
             $checkUser->store_result();
 
