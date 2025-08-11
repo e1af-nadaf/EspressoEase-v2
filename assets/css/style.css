@@ -66,6 +66,17 @@ header > nav {
   color: var(--accent);
 }
 
+.nav-container .hamburger {
+  /* display: none; */
+  font-size: 1.8rem;
+  color: var(--background);
+  cursor: pointer;
+}
+
+.nav-container .hamburger i {
+  pointer-events: none;
+}
+
 /* Signup */
 
 .signup-container {
@@ -154,6 +165,36 @@ header > nav {
 /* Responsive */
 
 /* navbar */
+@media (max-width: 768px) {
+  .nav-container {
+    justify-content: space-between;
+  }
+
+  .nav-container .hamburger {
+    display: block;
+  }
+
+  .nav-container .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .nav-container .nav-links.show {
+    display: flex;
+  }
+
+  .nav-container .nav-links li a {
+    color: var(--background);
+    padding: 0.5rem 0;
+  }
+}
 
 /* Signup form */
 @media (max-width: 500px) {
