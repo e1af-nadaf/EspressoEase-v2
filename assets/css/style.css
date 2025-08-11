@@ -167,6 +167,12 @@ header > nav {
   border: 1px solid #f5c6cb;
 }
 
+/* Footer */
+
+footer {
+  background-color: var(--primary);
+}
+
 /* Responsive */
 
 /* navbar */

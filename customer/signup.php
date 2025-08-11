@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-  <?php include "../includes/boilerplate.php"; ?>
+<?php include "../includes/boilerplate.php"; ?>
 
 
   <div class="signup-container">
@@ -89,6 +89,8 @@ $conn->close();
       </div>
     </form>
   </div>
+
+  <?php include "../includes/footer.php"; ?>
 
 
 
