@@ -20,7 +20,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     <?php if(isset($_SESSION["user_id"])): ?>
                         <li><a href="/EspressoEase-v2/cart.php">Cart</a></li>
                         <li><a href="/EspressoEase-v2/orders.php">My Orders</a></li>
-                        <li><a href="/EspressoEase-v2/logout.php">Logout</a></li>
+                        <li><a href="/EspressoEase-v2/customer/logout.php">Logout</a></li>
                     <?php else: ?>
                         <li><a href="/EspressoEase-v2/auth/login.php">Login</a></li>
                         <li><a href="/EspressoEase-v2/auth/signup.php">Signup</a></li>
