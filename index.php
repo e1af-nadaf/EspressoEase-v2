@@ -1,6 +1,9 @@
 <?php include "includes/boilerplate.php" ?>
 
-<h1>Welcome to EspressoEase :)</h1>
+<?php if (isset($_SESSION["user_id"])): ?>
+    <p class="welcome-text">Welcome, <?= htmlspecialchars($_SESSION["username"]) ?>!</p>
+<?php endif; ?>
+
 
 <?php include "includes/footer.php" ?>
 
