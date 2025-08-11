@@ -9,6 +9,9 @@ if (session_status() == PHP_SESSION_NONE) {
         <nav>
             <div class="nav-container">
                 <div class="logo">EspressoEase</div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
                 <ul class="nav-links">
                     <li><a href="/EspressoEase-v2/index.php">Home</a></li>
                     <li><a href="/EspressoEase-v2/">Menu</a></li>

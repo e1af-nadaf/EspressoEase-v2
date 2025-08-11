@@ -44,7 +44,7 @@ header > nav {
 
 .nav-container .logo {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: bold;
   color: var(--background);
 }
 
@@ -153,6 +153,9 @@ header > nav {
 
 /* Responsive */
 
+/* navbar */
+
+/* Signup form */
 @media (max-width: 500px) {
   .signup-container {
     margin: 20px;
