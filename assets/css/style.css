@@ -15,10 +15,18 @@
   --button-hover: #b08968;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   padding-top: 100px;
   background-color: var(--background);
   color: var(--text-main);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Navbar */
@@ -192,7 +200,7 @@ footer {
 
 .footer-container > .footer-links a {
   color: #ffffff;
-  margin: 0 10px;
+  margin: 10px;
   text-decoration: none;
 }
 
