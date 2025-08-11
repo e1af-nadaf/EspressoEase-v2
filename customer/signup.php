@@ -54,6 +54,7 @@ $conn->close();
 
   <?php include "../includes/boilerplate.php"; ?>
 
+
   <div class="signup-container">
     <h1>Create New Account</h1>
 
@@ -87,8 +88,7 @@ $conn->close();
         <button class="btn" type="submit">Sign Up</button>
       </div>
     </form>
-
-    
   </div>
+
 
 
