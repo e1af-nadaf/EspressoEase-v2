@@ -10,19 +10,20 @@ if (session_status() == PHP_SESSION_NONE) {
             <div class="nav-container">
                 <div class="logo">EspressoEase</div>
                 <div class="hamburger">
-                    <i class="fas"></i>
+                    <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-links">
                     <li><a href="/EspressoEase-v2/index.php">Home</a></li>
-                    <li><a href="/EspressoEase-v2/">Menu</a></li>
-                    <li><a href="/EspressoEase-v2/">About Us</a></li>
-                    <?php if(isset($_SESSION["user"])): ?>
-                        <li><a href="/EspressoEase-v2/">Cart</a></li>
-                        <li><a href="/EspressoEase-v2/">My Orders</a></li>
-                        <li><a href="/EspressoEase-v2/">Logout</a></li>
+                    <li><a href="/EspressoEase-v2/menu.php">Menu</a></li>
+                    <li><a href="/EspressoEase-v2/about.php">About Us</a></li>
+
+                    <?php if(isset($_SESSION["user_id"])): ?>
+                        <li><a href="/EspressoEase-v2/cart.php">Cart</a></li>
+                        <li><a href="/EspressoEase-v2/orders.php">My Orders</a></li>
+                        <li><a href="/EspressoEase-v2/logout.php">Logout</a></li>
                     <?php else: ?>
-                        <li><a href="/EspressoEase-v2/">Login</a></li>
-                        <li><a href="/EspressoEase-v2/">Signup</a></li>
+                        <li><a href="/EspressoEase-v2/auth/login.php">Login</a></li>
+                        <li><a href="/EspressoEase-v2/auth/signup.php">Signup</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
