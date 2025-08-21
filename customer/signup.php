@@ -86,7 +86,7 @@ $conn->close();
 
 <?php include "../includes/boilerplate.php"; ?>
 
-<div class="signup-container">
+<div class="auth-container">
     <h1>Create New Account</h1>
 
     <?php 

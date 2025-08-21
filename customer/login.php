@@ -53,9 +53,14 @@ $conn->close();
 
 <?php include "../includes/boilerplate.php"; ?>
 
-<div class="login-container">
+<div class="auth-container">
   <h1>Login</h1>
 
+  <?php 
+  if (!empty($success)) {
+    echo "<p class='success'>" . $success . "</p>";
+  }
+  ?>
   <?php 
   if (!empty($error)) {
     echo "<p class='error'>" . $error . "</p>";

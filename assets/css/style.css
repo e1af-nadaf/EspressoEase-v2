@@ -86,9 +86,9 @@ header > nav {
   pointer-events: none;
 }
 
-/* Signup */
+/* Authorization */
 
-.signup-container {
+.auth-container {
   max-width: 450px;
   margin: 50px auto;
   background-color: var(--accent);
@@ -97,24 +97,24 @@ header > nav {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-.signup-container h1 {
+.auth-container h1 {
   text-align: center;
   color: var(--text-main);
   margin-bottom: 20px;
 }
 
-.signup-container .form-group {
+.auth-container .form-group {
   margin-bottom: 15px;
 }
 
-.signup-container .form-label {
+.auth-container .form-label {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
   color: var(--text-main);
 }
 
-.signup-container .form-control {
+.auth-container .form-control {
   width: 100%;
   padding: 10px;
   margin: 0;
@@ -126,22 +126,22 @@ header > nav {
   transition: border-color 0.2s, box-shadow 0.2s, border 0.3s;
 }
 
-.signup-container .form-control:hover {
+.auth-container .form-control:hover {
   border-color: var(--secondary-text);
 }
 
-.signup-container .form-control:focus {
+.auth-container .form-control:focus {
   border-color: var(--button-hover);
   box-shadow: 0 0 4px rgba(111, 78, 55, 0.5);
   outline: none;
 }
 
-.signup-container .btn-container {
+.auth-container .btn-container {
   text-align: center;
   margin-top: 15px;
 }
 
-.signup-container .btn-container .btn {
+.auth-container .btn-container .btn {
   background-color: var(--primary);
   color: var(--background);
   border: none;
@@ -152,7 +152,7 @@ header > nav {
   transition: transform 0.1s;
 }
 
-.signup-container .btn-container .btn:hover {
+.auth-container .btn-container .btn:hover {
   transform: translateY(-1px);
   background-color: var(--text-main);
 }
@@ -251,7 +251,7 @@ footer {
 
 /* Signup form */
 @media (max-width: 500px) {
-  .signup-container {
+  .auth-container {
     margin: 20px;
     padding: 20px;
   }
