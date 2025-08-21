@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include "../includes/db.php";
+include "../../includes/db.php";
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $success = "Account created successfully! Redirecting...";
                     echo "<script>
                         setTimeout(function() {
-                            window.location.href = '../index.php';
+                            window.location.href = '../../index.php';
                         }, 2000);
                     </script>";
                 } else {
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<?php include "../includes/boilerplate.php"; ?>
+<?php include "../../includes/boilerplate.php"; ?>
 
 <div class="auth-container">
     <h1>Create New Account</h1>
@@ -121,4 +121,4 @@ $conn->close();
     </form>
 </div>
 
-<?php include "../includes/footer.php"; ?>
+<?php include "../../includes/footer.php"; ?>

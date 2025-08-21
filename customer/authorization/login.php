@@ -1,13 +1,12 @@
 <?php 
 session_start();
-include "../includes/db.php";
+include "../../includes/db.php";
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 $error = "";
 
-// Repopulate email if login fails
 $emailValue = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -36,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["username"] = $user["username"];
                 $_SESSION["email"] = $user["email"];
 
-                header("Location: ../index.php");
+                header("Location: ../menu.php");
                 exit();
             } else {
                 $error = "Invalid password!";
@@ -51,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<?php include "../includes/boilerplate.php"; ?>
+<?php include "../../includes/boilerplate.php"; ?>
 
 <div class="auth-container">
   <h1>Login</h1>
@@ -81,4 +80,4 @@ $conn->close();
   </form>
 </div>
 
-<?php include "../includes/footer.php"; ?>
+<?php include "../../includes/footer.php"; ?>
