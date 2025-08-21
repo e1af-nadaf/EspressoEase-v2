@@ -55,7 +55,6 @@ $conn->close();
 
 <div class="auth-container">
   <h1>Login</h1>
-
   <?php 
   if (!empty($success)) {
     echo "<p class='success'>" . $success . "</p>";
