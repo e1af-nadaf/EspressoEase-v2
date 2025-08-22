@@ -90,7 +90,8 @@ header > nav {
 
 .auth-container {
   max-width: 450px;
-  margin: 50px auto;
+  margin: 6rem auto;
+  height: auto;
   background-color: var(--accent);
   padding: 25px;
   border-radius: 10px;
@@ -175,6 +176,82 @@ header > nav {
   border: 1px solid #f5c6cb;
 }
 
+/* Menu Page */
+
+.menu-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.menu-container h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.menu-container .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 20px 0;
+}
+
+.menu-container .menu-grid .menu-card {
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.menu-container .menu-grid .menu-card:hover {
+  transform: translateY(-5px);
+}
+
+.menu-container .menu-grid .menu-card img {
+  width: 100%;
+  height: 9.3rem;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.menu-container .menu-grid .menu-card h2 {
+  margin: 15px 0 10px;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.menu-container .menu-grid .menu-card .description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.menu-container .menu-grid .menu-card .price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4a2c2a;
+  margin-bottom: 15px;
+}
+
+.menu-container .menu-grid .menu-card .add-to-cart {
+  background: #4a2c2a;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.menu-container .menu-grid .menu-card .add-to-cart:hover {
+  background: #6b3f3c;
+}
+
 /* Footer */
 
 footer {
@@ -249,10 +326,24 @@ footer {
   }
 }
 
-/* Signup form */
+/* Signup and login */
 @media (max-width: 500px) {
   .auth-container {
-    margin: 20px;
-    padding: 20px;
+    transform: scale(0.85);
+    margin: 3rem auto;
+  }
+}
+
+/* Menu Page */
+
+@media (max-width: 992px) {
+  .menu-container .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-container .menu-grid {
+    grid-template-columns: 1fr;
   }
 }
