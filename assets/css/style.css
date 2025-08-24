@@ -199,9 +199,9 @@ header > nav {
 }
 
 .menu-container .menu-grid .menu-card {
-  background: var(--card-bg, #fff);
+  background-color: var(--accent);
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   padding: 1rem;
   transition: transform 0.2s ease;
@@ -213,7 +213,7 @@ header > nav {
 
 .menu-container .menu-grid .menu-card img {
   width: 100%;
-  height: 15rem;
+  height: 10rem;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -222,34 +222,35 @@ header > nav {
 .menu-container .menu-grid .menu-card h2 {
   margin: 15px 0 10px;
   font-size: 1.25rem;
-  color: #333;
+  color: var(--primary);
 }
 
 .menu-container .menu-grid .menu-card .description {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--secondary-text);
   margin-bottom: 10px;
 }
 
 .menu-container .menu-grid .menu-card .price {
   font-size: 1.1rem;
   font-weight: bold;
-  color: #4a2c2a;
+  color: var(--text-main);
   margin-bottom: 15px;
 }
 
 .menu-container .menu-grid .menu-card .add-to-cart {
-  background: #4a2c2a;
-  color: #fff;
-  padding: 10px 15px;
+  background-color: var(--link);
+  color: var(--background);
+  padding: 15px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 7px;
   cursor: pointer;
+  font-size: 1rem;
   transition: background 0.2s ease;
 }
 
 .menu-container .menu-grid .menu-card .add-to-cart:hover {
-  background: #6b3f3c;
+  background-color: var(--primary);
 }
 
 /* Footer */
