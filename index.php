@@ -5,3 +5,5 @@
 echo "Hello, World!";
 
 ?>
+
+<?php include "includes/footer.php" ?>
