@@ -9,6 +9,6 @@
       <a href="/">Privacy Policy</a>
       <a href="/">Terms of Servide</a>
     </div>
-    <p class="copyright">&copy; 2025 EspressoEase. Made with &hearts; by Elaf. All rights reserved.</p>
+    <p class="copyright">Built & designed by Elaf Nadaf. All rights reserved. &copy;</p>
   </div>
 </footer>
