@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/EspressoEase-v2/assets/css/style.css">
 </head>
 <body>
-  <!-- <?php include (__DIR__ . "/navbar.php"); ?> -->
+  <?php include (__DIR__ . "/navbar.php"); ?>
 
   <!-- <script src="/EspressoEase-v2/assets/js/navbar.js"></script> -->
 </body>
