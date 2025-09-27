@@ -4,3 +4,66 @@
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
+
+:root {
+  --primary: #6f4e37;
+  --accent: #d7b19d;
+  --background: #fff8f2;
+  --text-main: #2e1d13;
+  --link: #1b0b03;
+  --secondary-text: #7a6a5a;
+  --button-hover: #b08968;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  padding-top: 100px;
+  background-color: var(--background);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+
+header > nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--primary);
+  padding: 2rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-container .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--background);
+}
+
+.nav-container .hamburger {
+  /* display: none; */
+  font-size: 1.8rem;
+  color: var(--background);
+  cursor: pointer;
+}
+
+.nav-container .hamburger i {
+  pointer-events: none;
+}
