@@ -67,3 +67,57 @@ header > nav {
 .nav-container .hamburger i {
   pointer-events: none;
 }
+
+.nav-container .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-container .nav-links li a {
+  text-decoration: none;
+  color: var(--background);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-container .nav-links li a:hover {
+  color: var(--link);
+}
+
+/* Responsiveness */
+
+/* Navbar */
+
+@media (max-width: 768px) {
+  .nav-container {
+    justify-content: space-between;
+  }
+
+  .nav-container .hamburger {
+    display: block;
+  }
+
+  .nav-container .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(111, 78, 55, 0.5);
+    backdrop-filter: blur(20px);
+    position: absolute;
+    top: 111px;
+    right: 3px;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .nav-container .nav-links.show {
+    display: flex;
+  }
+
+  .nav-container .nav-links li a {
+    color: var(--background);
+    padding: 0.5rem 0;
+  }
+}
