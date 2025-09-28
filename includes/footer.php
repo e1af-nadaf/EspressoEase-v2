@@ -7,7 +7,7 @@
     </div>
     <div class="footer-links">
       <a href="/">Privacy Policy</a>
-      <a href="/">Terms of Servide</a>
+      <a href="/">Terms of Service</a>
     </div>
     <p class="copyright">Built & designed by Elaf Nadaf. All rights reserved. &copy;</p>
   </div>
