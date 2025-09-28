@@ -58,7 +58,7 @@ header > nav {
 }
 
 .nav-container .hamburger {
-  /* display: none; */
+  display: none;
   font-size: 1.8rem;
   color: var(--background);
   cursor: pointer;
@@ -83,7 +83,98 @@ header > nav {
 }
 
 .nav-container .nav-links li a:hover {
-  color: var(--link);
+  color: var(--accent);
+}
+
+/* Authorization */
+
+/* Signup Page */
+
+.auth-container {
+  max-width: 450px;
+  margin: 6rem auto;
+  background-color: var(--accent);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.auth-container h1 {
+  text-align: center;
+  color: var(--text-main);
+  margin-bottom: 1.25rem;
+}
+
+.auth-container .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.auth-container .form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.auth-container .form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  display: block;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-container .form-control:hover {
+  border-color: var(--secondary-text);
+}
+
+.auth-container .form-control:focus {
+  border-color: var(--button-hover);
+  box-shadow: 0 0 4px rgba(111, 78, 55, 0.5);
+  outline: none;
+}
+
+.auth-container .btn-container {
+  text-align: center;
+  margin-top: 0.9rem;
+}
+
+.auth-container .btn-container .btn {
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.auth-container .btn-container .btn:hover {
+  transform: translateY(-1px);
+  background-color: var(--text-main);
+}
+
+.success {
+  background-color: #eaf4ea;
+  color: #1b5e20;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #c8e6c9;
+}
+
+.error {
+  background: #fdecea;
+  color: #b71c1c;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #f5c6cb;
 }
 
 /* footer */

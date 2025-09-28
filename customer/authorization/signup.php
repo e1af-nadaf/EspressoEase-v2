@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       if($checkUser->num_rows > 0) {
         $error = "Username is already taken!";
       } else {
-        $sql = "INSERT INTO users (username, email, password,role) VALUES (?, ?, ?, 'customer)";
+        $sql = "INSERT INTO users (username, email, password,role) VALUES (?, ?, ?, 'customer')";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sss", $username, $email, $hashed_password);
 
@@ -109,7 +109,7 @@ $conn->close();
     </div>
     <div class="form-group">
       <label for="confirm_password" class="form-label">Confirm Password: </label>
-      <input type="password" class="form-control" id="confirm_password" name="confirm_password" value="<?= $usernameValue ?>" required>
+      <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
     </div>
     <div class="btn-container">
       <button class="btn">Sign Up</button>
