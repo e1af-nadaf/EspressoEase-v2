@@ -17,6 +17,6 @@
 <body>
   <?php include (__DIR__ . "/navbar.php"); ?>
 
-  <!-- <script src="/EspressoEase-v2/assets/js/navbar.js"></script> -->
+  <script src="/EspressoEase-v2/assets/js/navbar.js"></script>
 </body>
 </html>
