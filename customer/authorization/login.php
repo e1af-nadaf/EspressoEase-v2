@@ -74,7 +74,7 @@ $conn->close();
       <button class="btn" type="submit">Login</button>
     </div>
   </form>
-  <p class="auth-footer">Don't have an account? <a href="signup.php" class="auth-link">Sign up here</a>.</p>
+  <p class="auth-footer">Don't have an account? <a href="signup.php" class="auth-link">Sign up here.</a></p>
 </div>
 
 <?php include "../../includes/footer.php" ?>

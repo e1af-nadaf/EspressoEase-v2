@@ -112,7 +112,7 @@ header > nav {
 .auth-container .form-label {
   display: block;
   margin-bottom: 6px;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-main);
 }
 
@@ -157,6 +157,22 @@ header > nav {
 .auth-container .btn-container .btn:hover {
   transform: translateY(-1px);
   background-color: var(--text-main);
+}
+
+.auth-container .auth-footer {
+  margin-top: 1rem;
+}
+
+.auth-container .auth-link {
+  color: var(--background);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.auth-container .auth-link:hover {
+  color: var(--link);
+  text-decoration: underline;
 }
 
 .success {

@@ -122,7 +122,7 @@ $conn->close();
       <button class="btn">Sign Up</button>
     </div>
   </form>
-  <p class="auth-footer">Already have an account? <a href="login.php" class="auth-link">Login here</a>.</p>
+  <p class="auth-footer">Already have an account? <a href="login.php" class="auth-link">Login here.</a></p>
 </div>
 
 <?php include "../../includes/footer.php" ?>
