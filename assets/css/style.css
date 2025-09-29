@@ -267,3 +267,14 @@ footer {
     padding: 0.5rem 0;
   }
 }
+
+/* Signup and Login */
+
+@media (max-width: 500px) {
+  .auth-container {
+    width: 85%;
+    margin: 3rem auto;
+    padding: 1.5rem;
+    max-width: none;
+  }
+}
