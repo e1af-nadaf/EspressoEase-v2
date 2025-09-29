@@ -7,13 +7,14 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 $success = "";
-$errors = "";
+$error = "";
 
 $usernameValue = "";
 $emailValue = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = trim($_POST["username"]);
+  $name = trim($_POST["name"]);
   $email = trim($_POST["email"]);
   $password = $_POST["password"];
   $confirm_password = $_POST["confirm_password"];
@@ -48,13 +49,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       if($checkUser->num_rows > 0) {
         $error = "Username is already taken!";
       } else {
-        $sql = "INSERT INTO users (username, email, password,role) VALUES (?, ?, ?, 'customer')";
+        $sql = "INSERT INTO users (username, name, email, password, role, created_at) 
+        VALUES (?, ?, ?, ?, 'customer', NOW())";
+
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sss", $username, $email, $hashed_password);
+
+        if (!$stmt) {
+          die("Prepare failed: ". $conn->error);
+        }
+
+        $stmt->bind_param("ssss", $username, $name, $email, $hashed_password);
 
         if ($stmt->execute()) {
           // Auto-login after signup
-          $_SESSION['user_id'] = $stmt->insert_id;
+          $_SESSION['user_id'] = $conn->insert_id;
           $_SESSION['username'] = $username;
           $_SESSION['email'] = $email;
           $_SESSION['role'] = "customer";
@@ -66,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             }, 2000);
           </script>";
         } else {
-           $error = "Signup failed. Please try again.";
+          $error = "Signup failed. Please try again." . $stmt->error;
         }
         $stmt->close();
       }
@@ -98,6 +106,10 @@ $conn->close();
     <div class="form-group">
       <label for="username" class="form-label">Username: </label>
       <input type="text" class="form-control" id="username" name="username" value="<?= $usernameValue ?>" required>
+    </div>
+    <div class="form-group">
+      <label for="name" class="form-label">Full Name: </label>
+      <input type="text" class="form-control" id="name" name="name" required>
     </div>
     <div class="form-group">
       <label for="email" class="form-label">Email: </label>
