@@ -14,7 +14,6 @@ $emailValue = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = trim($_POST["username"]);
-  $name = trim($_POST["name"]);
   $email = trim($_POST["email"]);
   $password = $_POST["password"];
   $confirm_password = $_POST["confirm_password"];
@@ -49,8 +48,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       if($checkUser->num_rows > 0) {
         $error = "Username is already taken!";
       } else {
-        $sql = "INSERT INTO users (username, name, email, password, role, created_at) 
-        VALUES (?, ?, ?, ?, 'customer', NOW())";
+        $sql = "INSERT INTO users (username, email, password, role, created_at) 
+        VALUES (?, ?, ?, 'customer', NOW())";
 
         $stmt = $conn->prepare($sql);
 
@@ -58,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           die("Prepare failed: ". $conn->error);
         }
 
-        $stmt->bind_param("ssss", $username, $name, $email, $hashed_password);
+        $stmt->bind_param("sss", $username, $email, $hashed_password);
 
         if ($stmt->execute()) {
           // Auto-login after signup
@@ -106,10 +105,6 @@ $conn->close();
     <div class="form-group">
       <label for="username" class="form-label">Username: </label>
       <input type="text" class="form-control" id="username" name="username" value="<?= $usernameValue ?>" required>
-    </div>
-    <div class="form-group">
-      <label for="name" class="form-label">Full Name: </label>
-      <input type="text" class="form-control" id="name" name="name" required>
     </div>
     <div class="form-group">
       <label for="email" class="form-label">Email: </label>
