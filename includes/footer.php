@@ -9,6 +9,6 @@
       <a href="/">Privacy Policy</a>
       <a href="/">Terms of Service</a>
     </div>
-    <p class="copyright">Built & designed by Elaf Nadaf. All rights reserved. &copy;</p>
+    <p class="copyright">Built & designed by Elaf Nadaf. &copy; 2025 All rights reserved.</p>
   </div>
 </footer>
